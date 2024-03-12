@@ -113,6 +113,10 @@ return {
             },
           })
         end,
+
+        -- we do not want to do anything with rust_analyzer
+        -- since that is covered by the mrcjkb/rustaceanvim plugin
+        ["rust_analyzer"] = function() end,
       },
     })
 
