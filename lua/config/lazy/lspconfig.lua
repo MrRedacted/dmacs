@@ -34,6 +34,10 @@ local mason_ensure_installed = {
   -- rust
   "rust-analyzer",
 
+  -- python
+  "python-lsp-server",
+  "yapf",
+
   -- misc
   "yaml-language-server"
 }

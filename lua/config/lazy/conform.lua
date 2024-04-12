@@ -20,6 +20,8 @@ return {
         typescript = { "prettier" },
         vue = { "prettier" },
         json = { "prettier" },
+
+        python = { "yapf" },
       },
 
       format_on_save = {
