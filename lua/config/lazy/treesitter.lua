@@ -4,9 +4,11 @@ return {
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         -- misc
-        "c",
         "lua",
         "vim",
+
+        -- c
+        "c",
 
         -- bash
         "bash",
@@ -27,6 +29,9 @@ return {
 
         -- rust
         "rust",
+
+        -- python
+        "python",
 
         -- markdown
         "markdown",
