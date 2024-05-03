@@ -33,6 +33,9 @@ return {
         -- python
         "python",
 
+        -- awk
+        "awk",
+
         -- markdown
         "markdown",
       },

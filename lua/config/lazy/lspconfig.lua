@@ -38,6 +38,9 @@ local mason_ensure_installed = {
   "python-lsp-server",
   "yapf",
 
+  -- awk
+  "awk-language-server",
+
   -- misc
   "yaml-language-server"
 }
