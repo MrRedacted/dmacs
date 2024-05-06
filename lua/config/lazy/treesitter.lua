@@ -10,6 +10,9 @@ return {
         -- c
         "c",
 
+        -- zig
+        "zig",
+
         -- bash
         "bash",
 

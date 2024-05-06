@@ -8,6 +8,8 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
 
+        zig = { "zig fmt" },
+
         sh = { "shfmt" },
 
         go = { "goimports", "gofumpt" },

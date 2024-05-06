@@ -7,6 +7,9 @@ local mason_ensure_installed = {
   -- c
   "clangd",
 
+  -- zig
+  "zls",
+
   -- bash
   "bash-language-server",
   "shellcheck",
