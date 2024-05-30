@@ -5,10 +5,16 @@ return {
 		require("trouble").setup()
 
 		vim.keymap.set("n", "<leader>er", function()
-			require("trouble").toggle("diagnostics")
+			require("trouble").toggle({
+				mode = "diagnostics",
+				focus = true,
+			})
 		end, { desc = "Trouble Diagnostics" })
 		vim.keymap.set("n", "<leader>ef", function()
-			require("trouble").toggle("quickfix")
+			require("trouble").toggle({
+				mode = "quickfix",
+				focus = true,
+			})
 		end, { desc = "Trouble Quickfix" })
 	end,
 }
