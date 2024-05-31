@@ -1,6 +1,7 @@
 return {
 	{
 		"ellisonleao/gruvbox.nvim",
+		lazy = true,
 		config = function()
 			require("gruvbox").setup({
 				italic = {
@@ -12,5 +13,9 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = true,
 	},
 }
