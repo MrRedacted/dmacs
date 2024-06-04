@@ -8,12 +8,18 @@ return {
 			require("trouble").toggle({
 				mode = "diagnostics",
 				focus = true,
+				filter = {
+					buf = 0,
+				},
 			})
 		end, { desc = "Trouble Diagnostics" })
 		vim.keymap.set("n", "<leader>ef", function()
 			require("trouble").toggle({
 				mode = "quickfix",
 				focus = true,
+				filter = {
+					buf = 0,
+				},
 			})
 		end, { desc = "Trouble Quickfix" })
 	end,
