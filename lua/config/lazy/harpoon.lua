@@ -8,8 +8,8 @@ return {
 		harpoon:setup()
 
 		vim.keymap.set("n", "<leader>ba", function()
-			harpoon:list():append()
-		end, { desc = "Harpoon Buffer Append" })
+			harpoon:list():add()
+		end, { desc = "Harpoon Buffer Add" })
 		vim.keymap.set("n", "<leader>be", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end, { desc = "Harpoon Buffer List" })
