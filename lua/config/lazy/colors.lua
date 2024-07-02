@@ -18,4 +18,9 @@ return {
 		"EdenEast/nightfox.nvim",
 		lazy = true,
 	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+	},
 }
