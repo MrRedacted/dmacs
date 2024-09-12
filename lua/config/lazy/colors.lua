@@ -27,5 +27,11 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = true,
+		config = function()
+			require("kanagawa").setup({
+				commentStyle = { italic = false },
+				keywordStyle = { italic = false },
+			})
+		end,
 	}
 }
