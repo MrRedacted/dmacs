@@ -17,11 +17,11 @@ require("lazy").setup({
 })
 
 function Mmm_grayons(color)
-	color = color or "gruvbox"
+	color = color or "kanagawa-wave"
 	vim.cmd.colorscheme(color)
 
 	-- use these to get transparent background if desired
 	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
-Mmm_grayons("catppuccin-mocha") -- use this to set the color scheme
+Mmm_grayons("kanagawa-wave") -- use this to set the color scheme
