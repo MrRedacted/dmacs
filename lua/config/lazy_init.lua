@@ -24,6 +24,6 @@ function Mmm_grayons(color)
 	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
-Mmm_grayons("gruvbox") -- use this to set the color scheme
+Mmm_grayons("catppuccin-mocha") -- use this to set the color scheme
 --Mmm_grayons("kanagawa-wave")
---Mmm_grayons("catppuccin-mocha")
+--Mmm_grayons("gruvbox")
