@@ -10,6 +10,9 @@ return {
 
         zig = { "zigfmt" },
 
+        ruby = { "rubocop" },
+        eruby = { "erb_format" },
+
         sh = { "shfmt" },
 
         go = { "goimports", "gofumpt" },

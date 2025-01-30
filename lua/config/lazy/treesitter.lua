@@ -13,6 +13,10 @@ return {
         -- zig
         "zig",
 
+        -- ruby
+        "ruby",
+        "embedded_template",
+
         -- bash
         "bash",
 

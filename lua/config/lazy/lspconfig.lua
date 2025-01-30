@@ -10,6 +10,11 @@ local mason_ensure_installed = {
   -- zig
   "zls",
 
+  -- ruby
+  "ruby-lsp",
+  "rubocop",
+  "erb-formatter",
+
   -- bash
   "bash-language-server",
   "shellcheck",
