@@ -11,9 +11,10 @@ local mason_ensure_installed = {
   "zls",
 
   -- ruby
-  "ruby-lsp",
-  "standardrb",
-  "erb-formatter",
+  -- these are now installed outside of mason
+  --"ruby-lsp",
+  --"standardrb",
+  --"erb-formatter",
 
   -- bash
   "bash-language-server",
@@ -79,12 +80,12 @@ return {
     )
     local lspconfig = require("lspconfig")
 
-    -- lspconfig.ruby_lsp.setup({
-    --  init_options = {
-    --    formatter = "standard",
-    --    linters = { "standard" },
-    --  },
-    -- })
+    lspconfig.ruby_lsp.setup({
+      init_options = {
+        formatter = "standard",
+        linters = { "standard" },
+      },
+    })
 
     require("fidget").setup({})
 
@@ -103,15 +104,15 @@ return {
           })
         end,
 
-        ["ruby_lsp"] = function()
-          lspconfig.ruby_lsp.setup({
-            capabilities = capabilities,
-            init_options = {
-              formatter = "standard",
-              linters = { "standard" },
-            },
-          })
-        end,
+        -- ["ruby_lsp"] = function()
+        --   lspconfig.ruby_lsp.setup({
+        --     capabilities = capabilities,
+        --     init_options = {
+        --       formatter = "standard",
+        --       linters = { "standard" },
+        --     },
+        --   })
+        -- end,
 
         ["ts_ls"] = function()
           lspconfig.ts_ls.setup({
