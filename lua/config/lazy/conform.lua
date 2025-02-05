@@ -10,7 +10,7 @@ return {
 
         zig = { "zigfmt" },
 
-        ruby = { "rubocop" },
+        ruby = { lsp_format = "fallback" },
         eruby = { "erb_format" },
 
         sh = { "shfmt" },
