@@ -82,15 +82,8 @@ return {
 		local lspconfig = require("lspconfig")
 
 		-- ruby support (ruby-lsp)
-		--lspconfig.rubocop.setup({})
-		--lspconfig.ruby_lsp.setup({
-		--	init_options = {
-		--		linters = { "rubocop", "erb_lint" },
-		--	},
-		--})
-
-		-- ruby support (solargraph)
-		lspconfig.solargraph.setup({
+		lspconfig.rubocop.setup({})
+		lspconfig.ruby_lsp.setup({
 			init_options = {
 				linters = { "rubocop", "erb_lint" },
 			},
