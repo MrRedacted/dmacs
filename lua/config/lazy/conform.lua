@@ -10,7 +10,7 @@ return {
 
         zig = { "zigfmt" },
 
-        ruby = { "standardrb" },
+        ruby = { "rubocop" },
         eruby = { "erb_format" },
 
         sh = { "shfmt" },

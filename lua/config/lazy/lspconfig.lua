@@ -13,7 +13,7 @@ local mason_ensure_installed = {
 	-- ruby
 	-- these are now handled outside of mason
 	-- "ruby-lsp",
-	-- "standardrb",
+	-- "rubocop",
 	-- "erb-formatter",
 	-- "erb-lint",
 
@@ -82,11 +82,10 @@ return {
 		local lspconfig = require("lspconfig")
 
 		-- ruby support
-		lspconfig.standardrb.setup({})
+		lspconfig.rubocop.setup({})
 		lspconfig.ruby_lsp.setup({
 			init_options = {
-				formatter = "standard",
-				linters = { "standard", "erb_lint" },
+				linters = { "rubocop", "erb_lint" },
 			},
 		})
 
@@ -112,8 +111,7 @@ return {
 				--   lspconfig.ruby_lsp.setup({
 				--     capabilities = capabilities,
 				--     init_options = {
-				--       formatter = "standard",
-				--       linters = { "standard", "erb_lint" },
+				--       linters = { "rubocop", "erb_lint" },
 				--     },
 				--   })
 				-- end,
