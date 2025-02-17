@@ -216,39 +216,39 @@ return {
 				end
 
 				-- Go To's
-				map("n", "gD", vim.lsp.buf.declaration, { table.unpack(opts), desc = "Go To Declaration" })
-				map("n", "gd", vim.lsp.buf.definition, { table.unpack(opts), desc = "Go To Definition" })
-				map("n", "gr", vim.lsp.buf.references, { table.unpack(opts), desc = "Go To References" })
-				map("n", "go", vim.lsp.buf.type_definition, { table.unpack(opts), desc = "Go To Type Definition" })
-				map("n", "gi", vim.lsp.buf.implementation, { table.unpack(opts), desc = "Go To Implementation" })
+				map("n", "gD", vim.lsp.buf.declaration, { unpack(opts), desc = "Go To Declaration" })
+				map("n", "gd", vim.lsp.buf.definition, { unpack(opts), desc = "Go To Definition" })
+				map("n", "gr", vim.lsp.buf.references, { unpack(opts), desc = "Go To References" })
+				map("n", "go", vim.lsp.buf.type_definition, { unpack(opts), desc = "Go To Type Definition" })
+				map("n", "gi", vim.lsp.buf.implementation, { unpack(opts), desc = "Go To Implementation" })
 
-				map("n", "K", vim.lsp.buf.hover, { table.unpack(opts), desc = "LSP hover" })
-				map("n", "<C-k>", vim.lsp.buf.signature_help, { table.unpack(opts), desc = "LSP Signature Help" })
+				map("n", "K", vim.lsp.buf.hover, { unpack(opts), desc = "LSP hover" })
+				map("n", "<C-k>", vim.lsp.buf.signature_help, { unpack(opts), desc = "LSP Signature Help" })
 				map(
 					"n",
 					"<leader>lwa",
 					vim.lsp.buf.add_workspace_folder,
-					{ table.unpack(opts), desc = "LSP Add Workspace Folder" }
+					{ unpack(opts), desc = "LSP Add Workspace Folder" }
 				)
 				map(
 					"n",
 					"<leader>lwr",
 					vim.lsp.buf.remove_workspace_folder,
-					{ table.unpack(opts), desc = "LSP Remove Workspace Folder" }
+					{ unpack(opts), desc = "LSP Remove Workspace Folder" }
 				)
 				map("n", "<leader>lwl", function()
 					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end, { table.unpack(opts), desc = "LSP List Workspace Folders" })
-				map("n", "<F2>", vim.lsp.buf.rename, { table.unpack(opts), desc = "Rename References" })
+				end, { unpack(opts), desc = "LSP List Workspace Folders" })
+				map("n", "<F2>", vim.lsp.buf.rename, { unpack(opts), desc = "Rename References" })
 				map(
 					{ "n", "v" },
 					"<leader>lca",
 					vim.lsp.buf.code_action,
-					{ table.unpack(opts), desc = "LSP Code Action" }
+					{ unpack(opts), desc = "LSP Code Action" }
 				)
 				map("n", "<leader>lfb", function()
 					vim.lsp.buf.format({ async = true })
-				end, { table.unpack(opts), desc = "LSP Format Buffer" })
+				end, { unpack(opts), desc = "LSP Format Buffer" })
 			end,
 		})
 	end,
