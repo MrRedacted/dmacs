@@ -210,6 +210,11 @@ return {
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				local opts = { buffer = ev.buf }
 
+				-- Fix issue with unpack/table.unpack being nil for some unknown reason...
+				if unpack == nil then
+					unpack = table.unpack
+				end
+
 				-- Go To's
 				map("n", "gD", vim.lsp.buf.declaration, { table.unpack(opts), desc = "Go To Declaration" })
 				map("n", "gd", vim.lsp.buf.definition, { table.unpack(opts), desc = "Go To Definition" })
