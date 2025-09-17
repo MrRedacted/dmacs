@@ -18,7 +18,7 @@ local mason_ensure_installed = {
 	"stylua",
 
 	-- web dev
-	"htmp-lsp",
+	"html-lsp",
 	"css-lsp",
 	"typescript-language-server",
 	"eslint-lsp",
