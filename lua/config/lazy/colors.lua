@@ -23,6 +23,9 @@ return {
 		lazy = true,
 		name = "catppuccin",
 		priority = 1000,
+		opts = {
+			no_italic = true,
+		},
 	},
 	{
 		"rebelot/kanagawa.nvim",
@@ -33,5 +36,5 @@ return {
 				keywordStyle = { italic = false },
 			})
 		end,
-	}
+	},
 }
