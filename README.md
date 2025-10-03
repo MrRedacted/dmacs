@@ -2,7 +2,7 @@
 it's actually a neovim config :)
 
 ## Required software
-- A Nerd Font (Hack Nerd Font is a great choice)
+- A Nerd Font (BlexMono Nerd Font is a great choice)
 - ripgrep
 
 ## Get started
