@@ -4,6 +4,7 @@ it's actually a neovim config :)
 ## Required software
 - A Nerd Font (BlexMono Nerd Font is a great choice)
 - ripgrep
+- git
 
 ## Get started
 - Be sure to back up any existing neovim configuration!
