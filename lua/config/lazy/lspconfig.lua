@@ -56,7 +56,7 @@ return {
 
 		-- we do not want to do anything with rust_analyzer
 		-- since that is covered by the mrcjkb/rustaceanvim plugin
-		vim.lsp.config("rust_analyzer", {})
+		--vim.lsp.config("rust_analyzer", {})
 
 		-- local lspconfig = require("lspconfig")
 		-- ruby support (ruby-lsp)

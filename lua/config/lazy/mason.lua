@@ -22,7 +22,7 @@ local mason_ensure_installed = {
 	"css-lsp",
 	"typescript-language-server",
 	"eslint-lsp",
-	"vue-language-server",
+	--"vue-language-server",
 	"vtsls",
 	"tailwindcss-language-server",
 	"json-lsp",
@@ -34,7 +34,7 @@ local mason_ensure_installed = {
 	"gofumpt",
 
 	-- rust
-	"rust-analyzer",
+	--"rust-analyzer",
 
 	-- python
 	"python-lsp-server",
