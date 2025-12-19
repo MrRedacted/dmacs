@@ -20,10 +20,10 @@ local mason_ensure_installed = {
 	-- web dev
 	"html-lsp",
 	"css-lsp",
-	"typescript-language-server",
-	"eslint-lsp",
-	--"vue-language-server",
+	--"typescript-language-server",
 	"vtsls",
+	"eslint-lsp",
+	"vue-language-server",
 	"tailwindcss-language-server",
 	"json-lsp",
 	"prettier",
