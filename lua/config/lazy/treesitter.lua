@@ -1,88 +1,115 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  config = function()
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        -- misc
-        "lua",
-        "vim",
+	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
+	lazy = false,
+	build = ":TSUpdate",
+	config = function()
+		local treesitter = require("nvim-treesitter")
+		treesitter.setup({})
+		local should_install = {
+			-- misc
+			"lua",
+			"vim",
 
-        -- c
-        "c",
+			-- c
+			"c",
 
-        -- zig
-        "zig",
+			-- zig
+			"zig",
 
-        -- ruby
-        "ruby",
-        "embedded_template",
+			-- ruby
+			"ruby",
+			"embedded_template",
 
-        -- bash
-        "bash",
+			-- bash
+			"bash",
 
-        -- web dev
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "vue",
-        "json",
+			-- web dev
+			"html",
+			"css",
+			"javascript",
+			"typescript",
+			"vue",
+			"json",
 
-        -- go
-        "go",
-        "gomod",
-        "gosum",
-        "gowork",
+			-- go
+			"go",
+			"gomod",
+			"gosum",
+			"gowork",
 
-        -- rust
-        "rust",
+			-- rust
+			"rust",
 
-        -- python
-        "python",
+			-- python
+			"python",
 
-        -- awk
-        "awk",
+			-- awk
+			"awk",
 
-        -- markdown
-        "markdown",
-      },
+			-- markdown
+			"markdown",
 
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
+			-- toml
+			"toml",
+		}
 
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
+		local regex = {}
 
-      -- List of parsers to ignore installing (for "all")
-      -- ignore_install = { "javascript" },
+		local function except(super, sub)
+			local result = {}
+			local seenInResult = {}
+			local lookupSub = {}
 
-      ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-      -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+			for _, value in ipairs(sub) do
+				lookupSub[value] = true
+			end
 
-      highlight = {
-        enable = true,
+			for _, value in ipairs(super) do
+				if not lookupSub[value] and not seenInResult[value] then
+					table.insert(result, value)
+					seenInResult[value] = true
+				end
+			end
 
-        -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-        -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-        -- the name of the parser)
-        -- list of language that will be disabled
-        -- disable = { "c", "rust" },
-        -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-        -- disable = function(lang, buf)
-        --     local max_filesize = 100 * 1024 -- 100 KB
-        --     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        --     if ok and stats and stats.size > max_filesize then
-        --         return true
-        --     end
-        -- end,
+			return result
+		end
 
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-      },
-    })
-  end,
+		local function enable_highlight(ft, bufnr)
+			vim.treesitter.start(bufnr)
+			if vim.list_contains(regex, ft) then
+				vim.bo[bufnr].syntax = "on"
+			end
+		end
+
+		local function ts_automagic(args)
+			local bufnr = args.buf
+			local ft = args.match
+
+			treesitter.install(ft):await(function()
+				if not vim.api.nvim_buf_is_loaded(bufnr) then
+					return
+				end
+
+				local installed = treesitter.get_installed()
+
+				if vim.list_contains(installed, ft) then
+					enable_highlight(ft, bufnr)
+				end
+			end)
+
+			if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match)) then
+				vim.treesitter.start(args.buf)
+			end
+		end
+
+		treesitter.install(except(should_install, treesitter.get_installed()))
+
+		vim.api.nvim_create_autocmd("FileType", {
+			group = vim.api.nvim_create_augroup("TreesitterAutoinstallPlugin", {
+				clear = true,
+			}),
+			callback = ts_automagic,
+		})
+	end,
 }
