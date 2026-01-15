@@ -20,10 +20,11 @@ function Mmm_grayons(color)
 	color = color or "gruvbox"
 	vim.cmd.colorscheme(color)
 
-	-- use these to get transparent background if desired
-	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	-- Use these to get transparent background if desired
+	--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
---Mmm_grayons("gruvbox") -- use this to set the color scheme
+-- Use this to set the color scheme
+--Mmm_grayons("gruvbox")
 --Mmm_grayons("kanagawa-wave")
 Mmm_grayons("catppuccin-macchiato")

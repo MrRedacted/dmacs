@@ -86,6 +86,25 @@ return {
 			local bufnr = args.buf
 			local ft = args.match
 
+			-- Skip filetypes that don't need treesitter (dashboards, help, etc.)
+			local ignored_filetypes = {
+				"alpha",
+				"dashboard",
+				"help",
+				"NvimTree",
+				"neo-tree",
+				"Trouble",
+				"lazy",
+				"mason",
+				"notify",
+				"toggleterm",
+				"",
+			}
+
+			if vim.list_contains(ignored_filetypes, ft) then
+				return
+			end
+
 			treesitter.install(ft):await(function()
 				if not vim.api.nvim_buf_is_loaded(bufnr) then
 					return
