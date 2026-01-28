@@ -4,6 +4,25 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
+		-- Suppress treesitter warnings about unsupported languages
+		local original_echo = vim.api.nvim_echo
+		vim.api.nvim_echo = function(chunks, history, opts)
+			for _, chunk in ipairs(chunks) do
+				if type(chunk[1]) == "string" and chunk[1]:match("skipping unsupported language") then
+					return
+				end
+			end
+			original_echo(chunks, history, opts)
+		end
+
+		local original_err_writeln = vim.api.nvim_err_writeln
+		vim.api.nvim_err_writeln = function(msg)
+			if type(msg) == "string" and msg:match("skipping unsupported language") then
+				return
+			end
+			original_err_writeln(msg)
+		end
+
 		local treesitter = require("nvim-treesitter")
 		treesitter.setup({})
 		local should_install = {
@@ -85,25 +104,6 @@ return {
 		local function ts_automagic(args)
 			local bufnr = args.buf
 			local ft = args.match
-
-			-- Skip filetypes that don't need treesitter (dashboards, help, etc.)
-			local ignored_filetypes = {
-				"alpha",
-				"dashboard",
-				"help",
-				"NvimTree",
-				"neo-tree",
-				"Trouble",
-				"lazy",
-				"mason",
-				"notify",
-				"toggleterm",
-				"",
-			}
-
-			if vim.list_contains(ignored_filetypes, ft) then
-				return
-			end
 
 			treesitter.install(ft):await(function()
 				if not vim.api.nvim_buf_is_loaded(bufnr) then
