@@ -21,6 +21,8 @@ return {
 			enableForWorkspaceTypeScriptVersions = true,
 		}
 
+		--vim.lsp.enable("phpactor")
+
 		vim.lsp.config("*", {
 			capabilities = capabilities,
 		})

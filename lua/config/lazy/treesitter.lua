@@ -71,6 +71,9 @@ return {
 
 			-- toml
 			"toml",
+
+			-- php
+			"php",
 		}
 
 		local regex = {}
