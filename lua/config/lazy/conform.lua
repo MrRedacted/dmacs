@@ -1,49 +1,51 @@
 return {
-  "stevearc/conform.nvim",
-  config = function()
-    require("conform").setup({
-      timeout_ms = 7000,
-      --lsp_fallback = true,
+	"stevearc/conform.nvim",
+	config = function()
+		require("conform").setup({
+			timeout_ms = 7000,
+			--lsp_fallback = true,
 
-      formatters_by_ft = {
-        lua = { "stylua" },
+			formatters_by_ft = {
+				lua = { "stylua" },
 
-        zig = { "zigfmt" },
+				zig = { "zigfmt" },
 
-        ruby = { lsp_format = "fallback" },
-        eruby = { "erb_format" },
+				ruby = { lsp_format = "fallback" },
+				eruby = { "erb_format" },
 
-        sh = { "shfmt" },
+				sh = { "shfmt" },
 
-        go = { "goimports", "gofumpt" },
+				go = { "goimports", "gofumpt" },
 
-        rust = { "rustfmt" },
+				rust = { "rustfmt" },
 
-        html = { "prettier" },
-        css = { "prettier" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        vue = { "prettier" },
-        json = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				vue = { "prettier" },
+				json = { "prettier" },
 
-        python = { "yapf" },
-      },
+				python = { "yapf" },
 
-      format_on_save = {
-        timeout_ms = 7000,
-        --lsp_fallback = true,
-      }
-    })
+				php = { "php_cs_fixer" },
+			},
 
-    vim.keymap.set("n", "<leader>af", function()
-      require("conform").format()
-    end, { desc = "Auto Format" })
+			format_on_save = {
+				timeout_ms = 7000,
+				--lsp_fallback = true,
+			},
+		})
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*",
-      callback = function(args)
-        require("conform").format({ bufnr = args.buf })
-      end,
-    })
-  end,
+		vim.keymap.set("n", "<leader>af", function()
+			require("conform").format()
+		end, { desc = "Auto Format" })
+
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = "*",
+			callback = function(args)
+				require("conform").format({ bufnr = args.buf })
+			end,
+		})
+	end,
 }
