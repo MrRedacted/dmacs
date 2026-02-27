@@ -28,7 +28,7 @@ return {
 
 				python = { "yapf" },
 
-				php = { "pretty-php" },
+				php = { "php_cs_fixer" },
 			},
 
 			format_on_save = {

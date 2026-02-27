@@ -44,8 +44,8 @@ local mason_ensure_installed = {
 	"awk-language-server",
 
 	-- php
-	"phpactor",
-	"pretty-php",
+	"intelephense",
+	"php-cs-fixer",
 
 	-- misc
 	"yaml-language-server",
