@@ -29,6 +29,8 @@ return {
 				python = { "yapf" },
 
 				php = { "php_cs_fixer" },
+
+				java = { lsp_format = "prefer" },
 			},
 
 			format_on_save = {
