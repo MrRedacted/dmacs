@@ -43,3 +43,12 @@ vim.g.loaded_netrw_gitignore = 1
 -- fix issues with diagnostic messages not showing
 -- to the right of code
 vim.diagnostic.config({ virtual_text = true })
+
+-- turn off auto-insertion of comments
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		vim.opt.formatoptions:remove({ "c", "r", "o" })
+	end,
+})
+
