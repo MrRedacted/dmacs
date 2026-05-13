@@ -22,7 +22,9 @@ return {
 				html = { "prettier" },
 				css = { "prettier" },
 				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
 				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
 				vue = { "prettier" },
 				json = { "prettier" },
 
@@ -33,10 +35,10 @@ return {
 				java = { lsp_format = "prefer" },
 			},
 
-			format_on_save = {
-				timeout_ms = 7000,
-				--lsp_fallback = true,
-			},
+			--format_on_save = {
+			--	timeout_ms = 7000,
+			--	--lsp_fallback = true,
+			--},
 		})
 
 		vim.keymap.set("n", "<leader>af", function()

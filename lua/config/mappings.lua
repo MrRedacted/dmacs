@@ -17,7 +17,7 @@ map("n", "<leader>fm", function()
 end, { desc = "Lsp formatting" })
 map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Lsp diagnostics" })
 map("n", "<leader>lr", "<cmd>LspRestart<CR>", { desc = "Restart LSP" })
-map("n", "<leader>li", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
+map("n", "<leader>li", "<cmd>checkhealth vim.lsp<CR>", { desc = "LSP Info" })
 
 -- plugins
 map("n", "<leader>la", "<cmd>Lazy<CR>", { desc = "Lazy" })
