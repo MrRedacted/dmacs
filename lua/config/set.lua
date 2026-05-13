@@ -52,3 +52,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
+-- sync yank and delete with system clipboard
+vim.opt.clipboard = "unnamedplus"
