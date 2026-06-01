@@ -37,8 +37,7 @@ local mason_ensure_installed = {
 	--"rust-analyzer",
 
 	-- python
-	"python-lsp-server",
-	"yapf",
+	"ruff",
 
 	-- awk
 	"awk-language-server",

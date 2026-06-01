@@ -28,7 +28,7 @@ return {
 				vue = { "prettier" },
 				json = { "prettier" },
 
-				python = { "yapf" },
+				python = { "ruff" },
 
 				php = { "php_cs_fixer" },
 
